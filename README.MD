@@ -7,13 +7,13 @@ Please only apply the steps below as an ingress controller and api gateway are a
 
 Steps for succesful deployment to our cluster
 
-Step 1 - deploy.yml and service.yml to k8s cluster (demo-likes-deploy.yml)
-Step 2 - verify all routes work, security, and db connections from lb external ip
-        Hint -> Check image pull secrets on deploy.yml
-        Hint -> Check make sure you have your ci/cd token secret in default namespace
-        Hint -> Check all spellings
-Step 3 - add routes and mapping to link service to gateway
-Step 4 - check ingress controller external ip and verify routes again
+- Step 1 - deploy.yml and service.yml to k8s cluster (demo-likes-deploy.yml)
+- Step 2 - verify all routes work, security, and db connections from lb external ip
+* Hint -> Check image pull secrets on deploy.yml
+* Hint -> Check make sure you have your ci/cd token secret in default namespace
+* Hint -> Check all spellings
+- Step 3 - add routes and mapping to link service to gateway
+- Step 4 - check ingress controller external ip and verify routes again
 
 If you get stuck reach out
 
