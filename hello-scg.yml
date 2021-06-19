@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: hello-scg-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-scg-app
+  template:
+    metadata:
+      labels:
+        app: hello-scg-app
+    spec:
+      serviceAccountName: api-service-acount
+      containers:
+        - image: keaganluttrell/hello-scg:latest
+          name: hello-scg-app
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      volumes:
+        - name: hello-scg-app
+          configMap:
+            name: hello-scg-app
+            items:
+            - key: "application.properties"
+              path: "application.properties"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-scg-app-lb
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    app: hello-scg-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      name: http

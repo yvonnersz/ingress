@@ -1,0 +1,26 @@
+apiVersion: "tanzu.vmware.com/v1"
+kind: SpringCloudGatewayRouteConfig
+metadata:
+  name: hello-scg-routes
+  namespace: default
+spec:
+  service:
+    name: hello-scg-app-lb
+    namespace: default
+  routes:
+    - predicates:
+        - Path=/hello
+      filters:
+        - StripPrefix=0
+    - predicates:
+        - Path=/check
+      filters:
+        - StripPrefix=0
+    - predicates:
+        - Path=/actuator/**
+      filters:
+        - StripPrefix=0
+    - predicates:
+        - Path=/
+      filters:
+        - StripPrefix=0

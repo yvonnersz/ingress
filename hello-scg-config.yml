@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-scg-app
+  namespace: default
+  labels:
+    version: "1.0"
+    app: hello-scg-app
+data:
+  application.properties: |-
+    management.endpoints.web.exposure.include=health
+    server.port=8080
+    spring.cloud.gateway.discovery.locator.enabled=true
+    spring.cloud.gateway.discovery.locator.​lower-case-service-id=true
+    spring.cloud.kubernetes.loadbalancer.mode=SERVICE
+    spring.cloud.loadbalancer.ribbon.enabled=false
+

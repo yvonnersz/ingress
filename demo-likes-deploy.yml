@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: likes-api
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: likes-api
+  template:
+    metadata:
+      labels:
+        app: likes-api
+        namespace: default
+    spec:
+      serviceAccountName: api-service-acount
+      containers:
+        - image: registry.gitlab.com/galv-vmw-apr-2021/capstone/tough-cookies/likes:latest
+          name: likes-api
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: bakery-db-secrets
+                  key: DB_HOST
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: bakery-db-secrets
+                  key: DB_NAME
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: bakery-db-secrets
+                  key: DB_USER
+            - name: DB_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: bakery-db-secrets
+                  key: DB_PWD
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-key-secret
+                  key: JWT_SECRET_KEY
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      imagePullSecrets:
+        - name: likes-api-token
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: likes-api-lb
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    app: likes-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      name: http

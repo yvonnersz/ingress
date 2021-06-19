@@ -1,0 +1,13 @@
+apiVersion: "tanzu.vmware.com/v1"
+kind: SpringCloudGateway
+metadata:
+  name: api-gateway
+  namespace: default
+spec:
+  env:
+    - name: spring.cloud.gateway.discovery.locator.enabled
+      value: "true"
+    - name: spring.cloud.gateway.actuator.verbose.enabled
+      value: "true"
+    - name: "spring.cloud.kubernetes.discovery.all-namespaces"
+      value: "true"
