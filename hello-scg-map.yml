@@ -9,3 +9,4 @@ spec:
     namespace: default
   routeConfigRef:
     name: hello-scg-routes
+    name: content-api-routes
