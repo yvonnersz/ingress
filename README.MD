@@ -166,7 +166,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
-          env:
+          env: # you may need to make changes for your specfic app if you are not using these secrets
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
