@@ -111,8 +111,8 @@ deploy:
 
   script: # we will create the files below in the next few steps
 
-    - envsubst < your-app-deploy.yml | kubectl apply -f -
-    - kubectl apply -f your-app-routes-maps.yml
+    - envsubst < appname-deploy.yml | kubectl apply -f -
+    - kubectl apply -f appnmae-routes-maps.yml
   only: # this will only run the deploy stage on main
     - main
 ```
