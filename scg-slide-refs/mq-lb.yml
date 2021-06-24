@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq-mgt
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    service: rabbit-mq-rabbitmq
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 15672
+      name: http
