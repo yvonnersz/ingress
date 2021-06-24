@@ -13,12 +13,14 @@ If you are on your main branch, checkout a new branch named: _deploy_
 
 If you are on any other branch you should be fine
 
+**Throughout this guide you will encounter " _appname_ ", think of it as the variable for your application. Ex: likes, ratings, users, content, search... etc.. please substitute the name of your app for " _appname_ "
+
 ## Step 1: Double Check your application dependencies
 
 _application.properties_
 ```properties
 #K8s
-spring.application.name=likes-api
+spring.application.name=appname-api
 spring.cloud.gateway.discovery.locator.enabled=true
 spring.cloud.kubernetes.discovery.all-namespaces=true
 spring.cloud.kubernetes.loadbalancer.mode=SERVICE
@@ -287,7 +289,7 @@ Plug the External IP into postman and test your routes
 
 ## Create Routes and Mapping
 * This is how we connect our service to the api gateway
-* Like the deploy.yml, I am combining two ym's into one
+* Like the deploy.yml, I am combining two yml's into one
 * check this out
 
 Add this file to your root as well
@@ -325,7 +327,7 @@ spec:
     name: appname-api-routes #change me
 ```
 
-Like you did for the deploy apply these files
+Now its time to apply these files
 
 Make sure you are on root
 
@@ -334,6 +336,8 @@ kubectl apply -f appname-routes-maps.yml
 ```
 
 You should see that both files are configured
+
+Look for appname-api-routes
 
 _routes_
 ```sh
