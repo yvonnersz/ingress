@@ -160,7 +160,7 @@ spec:
         app: appname-api #change me
         namespace: default
     spec:
-      serviceAccountName: api-service-acount
+      serviceAccountName: api-service-account
       containers:
       # replace the line below with the image from your container registry in gitlab
         - image: registry.gitlab.com/galv-vmw-apr-2021/capstone/tough-cookies/likes:latest #change me
