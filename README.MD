@@ -27,6 +27,7 @@ management.endpoints.web.exposure.include=health
 # other properties below
 ```
 Make sure you have all of these in your application.properties files
+
 ---
 ## Step 2: Double Check your .gitlab-ci.yml
 
