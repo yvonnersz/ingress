@@ -273,12 +273,12 @@ kubectl get pods -n default
 ```
 Now verify that your pods are running (you may only have one)
 
-```
+```sh
 likes-api-86b55c99b6-pg4vx                  1/1     Running   0          6h6m
 ```
 Now find your service's external ip
 
-```
+```sh
 kubectl get svc
 ```
 ```
@@ -362,7 +362,7 @@ If both are properly configured congrats! it is time to test out the gateway!
 
 We can do this one of two ways
 
-```
+```sh
 $: kubectl get ingress
 NAME              CLASS    HOSTS   ADDRESS                                                                   PORTS   AGE
 gateway-ingress   <none>   *       acd107acb6ca74a828c1b4399fe3281c-1538335466.us-west-2.elb.amazonaws.com   80      39h
