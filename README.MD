@@ -372,9 +372,9 @@ To test, just copy and paste this address into postman and try your routes again
 
 ### OR USE OUR NEW DNS
 
-bakery.galvanizelabs.net
+[bakery.galvanizelabs.net](bakery.galvanizelabs.net)
 
-ex: bakery.galvanizelabs.net/api/ratings/2
+ex: [bakery.galvanizelabs.net/api/ratings/2](bakery.galvanizelabs.net/api/ratings/2)
 
 _return from postman..._
 ```json
