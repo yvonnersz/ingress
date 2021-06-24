@@ -249,6 +249,10 @@ Add username and password from the from the token you just created to the corres
 
 Be sure to keep the quotes where they are present
 
+**Be sure to add the _appname-deploy.yml_ to the bottom of your _.gitlab-ci.yml_ in the deploy stage!**
+
+**Be sure to add the _appname-api-token_ to your image pull secrets in the _appname-deploy.yml_!**
+
 ## Deploy to K8's
 
 * Make sure your are in your root directory of your spring app
