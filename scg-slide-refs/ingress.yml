@@ -15,14 +15,6 @@ spec:
   rules:
     - http:
         paths:
-          - path: /
-            pathType: Prefix
-            filter:
-            backend:
-              service:
-                name: tuff-cookie-client-lb
-                port:
-                  number: 80
           - path: /api
             pathType: Prefix
             filter:

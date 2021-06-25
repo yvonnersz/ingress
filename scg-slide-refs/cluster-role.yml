@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: api-service-acount
+  name: api-service-account
   namespace: default
 ---
 kind: ClusterRole
@@ -21,7 +21,7 @@ metadata:
   namespace: default
 subjects:
   - kind: ServiceAccount
-    name: api-service-acount
+    name: api-service-account
     apiGroup: ""
 roleRef:
   kind: ClusterRole

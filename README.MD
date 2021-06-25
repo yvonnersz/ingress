@@ -307,6 +307,10 @@ spec:
     name: appname-api-lb #change me
     namespace: default
   routes:
+      - predicates: # to include actuator health in your api
+        - Path=/api/likes/actuator/** # be sure to change "likes" to you path
+      filters:
+        - StripPrefix=2
     - predicates:
     # your path should start with /api/path
     # plug your route in
